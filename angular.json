@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FoodAndSnacks"
+    }
+  },
+  "defaultProject": "FoodAndSnacks",
+  "cli": {
+    "analytics": "88668a6e-dbb0-4ee1-969f-24784948eccc"
+  }
 }
