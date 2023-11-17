@@ -1,5 +1,6 @@
+import { ShoppingListService } from '../shopping-list.service';
 import { Ingredient } from './../../shared/ingredient.model';
-import { Component, ElementRef, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -13,9 +14,9 @@ export class ShoppingEditComponent implements OnInit {
   // old way to use properties from a object
                                             // ingredientAdded = new EventEmitter<{name: string, amount: number}>(); //
   // instead use this:
-  @Output() ingredientAdded = new EventEmitter<Ingredient>();
+  // @Output() ingredientAdded = new EventEmitter<Ingredient>();
 
-  constructor() { }
+  constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,6 @@ export class ShoppingEditComponent implements OnInit {
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value;
     const ingNew = new Ingredient(ingName, ingAmount);
-    this.ingredientAdded.emit(ingNew);
+    this.slService.addIngredient(ingNew);
   }
 }
